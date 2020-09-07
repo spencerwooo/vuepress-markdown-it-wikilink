@@ -1,0 +1,48 @@
+{
+  "name": "@spencerwoo/vuepress-markdown-it-wikilink",
+  "version": "1.0.0",
+  "description": "WikiMedia-style links for VuePress using the markdown-it parser",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "rimraf coverage && istanbul cover node_modules/.bin/_mocha",
+    "lint-init": "eslint --init",
+    "lint": "eslint index.js",
+    "test": "yarn run lint && mocha -R spec",
+    "test-ci": "yarn run lint && istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rimraf ./coverage",
+    "format": "yarn run prettier *.js test/*.js --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencerwooo/vuepress-markdown-it-wikilink"
+  },
+  "keywords": [
+    "markdown-it-plugin",
+    "markdown-it",
+    "markdown",
+    "wiki-links",
+    "wikimedia",
+    "wiki"
+  ],
+  "author": "spencerwooo <spencer.woo@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spencerwooo/vuepress-markdown-it-wikilink/issues"
+  },
+  "homepage": "https://github.com/spencerwooo/vuepress-markdown-it-wikilink#readme",
+  "devDependencies": {
+    "coveralls": "^2.11.14",
+    "eslint": "^3.7.1",
+    "istanbul": "^0.4.5",
+    "markdown-it": "^8.0.0",
+    "markdown-it-testgen": "^0.1.4",
+    "mocha": "^3.1.0",
+    "prettier": "^2.1.1",
+    "request": "^2.75.0",
+    "rimraf": "^2.5.4"
+  },
+  "dependencies": {
+    "extend": "^3.0.0",
+    "markdown-it-regexp": "^0.4.0",
+    "sanitize-filename": "^1.6.1"
+  }
+}
