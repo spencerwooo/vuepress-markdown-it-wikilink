@@ -34,17 +34,26 @@ module.exports = {
     },
   },
   // ...
+}
 ```
 
 ## Options
 
 > Options here defined will render as expected inside VuePress. Only the `<a></a>` tags are converted to `<router-link></router-link>` and `hrefs` are converted in format: `to="href"`.
 
+| Option                      | Default value            | Note                                                              | Example                                                  |
+| :-------------------------- | :----------------------- | :---------------------------------------------------------------- | :------------------------------------------------------- |
+| `baseURL`                   | `/`                      | The base URL for absolute wiki links.                             | [#baseurl](#baseurl)                                     |
+| `relativeBaseURL`           | `/`                      | The base URL for relative wiki links.                             | [#relativeBaseURL](#relativebaseurl)                     |
+| `makeAllLinksAbsolute`      | false                    | Render all wiki links as absolute links.                          |                                                          |
+| `uriSuffix`                 | `.html`                  | Append this suffix to every URL.                                  | [#uriSuffix](#urisuffix)                                 |
+| `htmlAttributes`            | `{ class: 'wikilinks' }` | An object containing HTML attributes to be applied to every link. | [#htmlAttributes](#htmlattributes)                       |
+| `generatePageNameFromLabel` |                          | Provide a custom page name generator.                             | [#generatePageNameFromLabel](#generatepagenamefromlabel) |
+| `postProcessPageName`       |                          | A transform applied to every page name.                           | [#postProcessPageName](#postprocesspagename)             |
+| `postProcessLabel`          |                          | A transform applied to every link label.                          | [#postProcessLabel](#postprocesslabel)                   |
+
+
 ### `baseURL`
-
-**Default:** `/`
-
-The base URL for absolute wiki links.
 
 ```js
 const html = require('markdown-it')()
@@ -55,10 +64,6 @@ const html = require('markdown-it')()
 
 ### `relativeBaseURL`
 
-**Default:** `/`
-
-The base URL for relative wiki links.
-
 ```js
 const html = require('markdown-it')()
   .use(require('vuepress-markdown-it-wikilink')({ relativeBaseURL: '#', suffix: '' }))
@@ -66,17 +71,7 @@ const html = require('markdown-it')()
 // <p><router-link to="#Main_Page">Main Page</router-link></p>
 ```
 
-### `makeAllLinksAbsolute`
-
-**Default:** `false`
-
-Render all wiki links as absolute links.
-
 ### `uriSuffix`
-
-**Default:** `.html`
-
-Append this suffix to every URL.
 
 ```js
 const html = require('markdown-it')()
@@ -86,10 +81,6 @@ const html = require('markdown-it')()
 ```
 
 ### `htmlAttributes`
-
-**Default:** `{ class: 'wikilinks' }`
-
-An object containing HTML attributes to be applied to every link.
 
 ```js
 const attrs = {
@@ -104,9 +95,7 @@ const html = require('markdown-it')()
 
 ### `generatePageNameFromLabel`
 
-Unless otherwise specified, the labels of the links are used as the targets. This means that a non-[piped](https://meta.wikimedia.org/wiki/Help:Piped_link) link such as `[[Slate]]` will point to the `Slate` page on your website.
-
-But say you wanted a little more flexibility - like being able to have `[[Slate]]`, `[[slate]]`, `[[SLATE]]` and `[[Slate!]]` to all point to the same page. Well, you can do this by providing your own custom `generatePageNameFromLabel` function.
+Unless otherwise specified, the labels of the links are used as the targets. This means that a non-[piped](https://meta.wikimedia.org/wiki/Help:Piped_link) link such as `[[Slate]]` will point to the `Slate` page on your website. But say you wanted a little more flexibility - like being able to have `[[Slate]]`, `[[slate]]`, `[[SLATE]]` and `[[Slate!]]` to all point to the same page. Well, you can do this by providing your own custom `generatePageNameFromLabel` function.
 
 #### Example
 
@@ -140,9 +129,7 @@ Please note that the `generatePageNameFromLabel` function does not get applied f
 
 ### `postProcessPageName`
 
-A transform applied to every page name. You can override it just like `generatePageNameFromLabel` (see above).
-
-The default transform does the following things:
+A transform applied to every page name. You can override it just like `generatePageNameFromLabel` (see above). The default transform does the following things:
 
 - trim surrounding whitespace
 - [sanitize](https://github.com/parshap/node-sanitize-filename) the string
@@ -150,9 +137,7 @@ The default transform does the following things:
 
 ### `postProcessLabel`
 
-A transform applied to every link label. You can override it just like `generatePageNameFromLabel` (see above).
-
-All the default transform does is trim surrounding whitespace.
+A transform applied to every link label. You can override it just like `generatePageNameFromLabel` (see above). All the default transform does is trim surrounding whitespace.
 
 ## Credits
 
