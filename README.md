@@ -1,3 +1,3 @@
 # vuepress-markdown-it-wikilink
 
-> WikiMedia-style links for VuePress using the markdown-it parser.
+> Wikimedia-style links for VuePress using the markdown-it parser.

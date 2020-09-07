@@ -1,7 +1,7 @@
 {
-  "name": "@spencerwoo/vuepress-markdown-it-wikilink",
+  "name": "vuepress-markdown-it-wikilink",
   "version": "1.0.0",
-  "description": "WikiMedia-style links for VuePress using the markdown-it parser",
+  "description": "Wikimedia-style links for VuePress using the markdown-it parser",
   "main": "index.js",
   "scripts": {
     "coverage": "rimraf coverage && istanbul cover node_modules/.bin/_mocha",
